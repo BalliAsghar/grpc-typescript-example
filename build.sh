@@ -2,6 +2,10 @@
 
 OUT_DIR=./src/generated
 
+if [ ! -d ${OUT_DIR} ]; then
+  mkdir -p ${OUT_DIR}
+fi
+
 # generate js codes via grpc-tools
 grpc_tools_node_protoc \
 --js_out=import_style=commonjs,binary:${OUT_DIR} \
