@@ -7,7 +7,6 @@ import {
 } from '@grpc/grpc-js';
 import {
   CreateProductRequest,
-  CreateProductResponse,
   GetProductRequest,
   GetProductResponse,
   Empty,
@@ -24,8 +23,8 @@ const redis = new Redis();
 pingRedis(redis);
 
 const createProduct = async (
-  call: ServerUnaryCall<CreateProductRequest, CreateProductResponse>,
-  callback: sendUnaryData<CreateProductResponse>,
+  call: ServerUnaryCall<CreateProductRequest, Empty>,
+  callback: sendUnaryData<Empty>,
 ) => {
   try {
     // Validate input
@@ -54,12 +53,10 @@ const createProduct = async (
       JSON.stringify(newProduct),
     );
 
-    // Create a gRPC response object with the ID of the new product
-    const response = new CreateProductResponse();
-    response.setId(id);
-
-    // Send the response back to the client
-    callback(null, response);
+    callback({
+      code: status.OK,
+      message: 'Product created successfully',
+    });
   } catch (error) {
     console.error(error);
     callback({
