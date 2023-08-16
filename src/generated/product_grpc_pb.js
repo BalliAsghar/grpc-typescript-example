@@ -26,6 +26,17 @@ function deserialize_product_CreateProductResponse(buffer_arg) {
   return product_pb.CreateProductResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_product_Empty(arg) {
+  if (!(arg instanceof product_pb.Empty)) {
+    throw new Error('Expected argument of type product.Empty');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_product_Empty(buffer_arg) {
+  return product_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_product_GetProductRequest(arg) {
   if (!(arg instanceof product_pb.GetProductRequest)) {
     throw new Error('Expected argument of type product.GetProductRequest');
@@ -46,17 +57,6 @@ function serialize_product_GetProductResponse(arg) {
 
 function deserialize_product_GetProductResponse(buffer_arg) {
   return product_pb.GetProductResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_product_GetProductsRequest(arg) {
-  if (!(arg instanceof product_pb.GetProductsRequest)) {
-    throw new Error('Expected argument of type product.GetProductsRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_product_GetProductsRequest(buffer_arg) {
-  return product_pb.GetProductsRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_product_GetProductsResponse(arg) {
@@ -87,10 +87,10 @@ var ProductServiceService = exports.ProductServiceService = {
     path: '/product.ProductService/GetProducts',
     requestStream: false,
     responseStream: false,
-    requestType: product_pb.GetProductsRequest,
+    requestType: product_pb.Empty,
     responseType: product_pb.GetProductsResponse,
-    requestSerialize: serialize_product_GetProductsRequest,
-    requestDeserialize: deserialize_product_GetProductsRequest,
+    requestSerialize: serialize_product_Empty,
+    requestDeserialize: deserialize_product_Empty,
     responseSerialize: serialize_product_GetProductsResponse,
     responseDeserialize: deserialize_product_GetProductsResponse,
   },

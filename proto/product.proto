@@ -4,7 +4,7 @@ package product;
 
 service ProductService {
     rpc GetProduct(GetProductRequest) returns (GetProductResponse);
-    rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+    rpc GetProducts(Empty) returns (GetProductsResponse);
     rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
 }
 
@@ -19,9 +19,7 @@ message GetProductResponse {
     string price = 5;
 }
 
-message GetProductsRequest {
-    string id = 1;
-}
+message Empty {}
 
 message GetProductsResponse {
     repeated GetProductResponse products = 1;

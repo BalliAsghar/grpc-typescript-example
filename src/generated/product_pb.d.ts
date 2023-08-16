@@ -55,23 +55,20 @@ export namespace GetProductResponse {
     }
 }
 
-export class GetProductsRequest extends jspb.Message { 
-    getId(): string;
-    setId(value: string): GetProductsRequest;
+export class Empty extends jspb.Message { 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GetProductsRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: GetProductsRequest): GetProductsRequest.AsObject;
+    toObject(includeInstance?: boolean): Empty.AsObject;
+    static toObject(includeInstance: boolean, msg: Empty): Empty.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GetProductsRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GetProductsRequest;
-    static deserializeBinaryFromReader(message: GetProductsRequest, reader: jspb.BinaryReader): GetProductsRequest;
+    static serializeBinaryToWriter(message: Empty, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Empty;
+    static deserializeBinaryFromReader(message: Empty, reader: jspb.BinaryReader): Empty;
 }
 
-export namespace GetProductsRequest {
+export namespace Empty {
     export type AsObject = {
-        id: string,
     }
 }
 

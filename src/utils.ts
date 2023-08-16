@@ -11,15 +11,10 @@ async function pingRedis(redis: Redis) {
   }
 }
 
-async function doesProductExist(redis: Redis, id: string): Promise<boolean> {
-  return !!(await redis.call('JSON.GET', `product:${id}`));
-}
-
 function createGetProductResponse(
   product: GetProductResponse.AsObject,
 ): GetProductResponse {
   const response = new GetProductResponse();
-
   response.setName(product.name);
   response.setPrice(product.price);
   response.setId(product.id);
@@ -28,4 +23,4 @@ function createGetProductResponse(
   return response;
 }
 
-export { pingRedis, doesProductExist, createGetProductResponse };
+export { pingRedis, createGetProductResponse };
