@@ -41,3 +41,9 @@ npm run dev
 ### Test the server
 
 Use [Postman](https://www.postman.com/) or any other tool to test the server.
+
+### Available RPCs
+
+- `CreateProduct` - Creates a new product
+- `GetProduct` - Gets a product by id
+- `GetProducts` - Gets all products
